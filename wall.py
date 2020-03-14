@@ -30,9 +30,9 @@ class Wall(pygame.sprite.Sprite):
                 if self.game.player.rect.x + self.game.player.rect.width < self.rect.x + self.rect.width:
                     self.game.is_gameover = True
 
-        """if self.game.player.rect.y + self.game.player.rect.height > self.rect.y:
+        elif self.game.player.rect.y + self.game.player.rect.height < self.rect.y:
             if self.game.player.rect.x + self.game.player.rect.width > self.rect.x:
-                if self.game.player.rect.x > self.rect.x + self.rect.width:
-                    self.game.is_gameover = True"""
+                if self.game.player.rect.x + self.game.player.rect.width < self.rect.x + self.rect.width:
+                    self.game.score += 1
 
-
+        

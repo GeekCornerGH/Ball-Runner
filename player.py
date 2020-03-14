@@ -13,12 +13,12 @@ class Player(pygame.sprite.Sprite):
 
         self.rotate_speed = -20
 
-        self.image = pygame.image.load("assets/player.png").convert_alpha()
+        self.image = pygame.image.load("assets/skins/default.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.x = 250
         self.rect.y = 505
 
-        self.origin_image = pygame.image.load("assets/player.png")
+        self.origin_image = pygame.image.load("assets/skins/default.png")
 
         self.angle = 0
 
@@ -32,3 +32,6 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.transform.rotozoom(self.origin_image, self.angle, 1)
         self.rect = self.image.get_rect(center=self.rect.center)
 
+    def update(self, image):
+        self.origin_image = pygame.image.load(image)
+        print("PLayer image updated")
