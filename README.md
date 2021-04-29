@@ -1,6 +1,6 @@
 # Ball Runner
  Simple Ball Jumping Game
-(Test of the GIT)
+
 
 ## Description
 Ball runner est un jeu en 2D développé en Python, à l'aide de la bibliothèque Pygame, qui consiste à sauter par dessus des murets.
