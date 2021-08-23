@@ -1,0 +1,29 @@
+name: BallRunner CI
+
+on: push
+
+jobs:
+  CI:
+    name: CI
+    runs-on: ${{ matrix.os }}
+    continue-on-error: false
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    
+    steps:
+      - name: Clonage du répository
+        uses: actions/checkout@v2
+      - name: Installation et configuration de Python 3.6
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Installation des dépendances
+        run: pip install cx_freeze pygame random pickle
+      - name: Build du jeu
+        run: python setup.py build
+      - name: Mise en ligne des artefacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: build/**
+          name: ${{ matrix.os }}-artefacts
