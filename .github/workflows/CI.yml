@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Installation des dépendances
-        run: pip install cx_freeze pygame random pickle
+        run: pip install cx_freeze pygame
       - name: Build du jeu
         run: python setup.py build
       - name: Mise en ligne des artefacts
